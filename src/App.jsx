@@ -4,11 +4,24 @@ import './App.css'
 function App() {
   const [porras, setPorras] = useState([])
 
-  const link = "https://didactic-space-pancake-r45rvx749r4357g-3000.app.github.dev/api/porras"
+  async function getPorras() {
+    const ruta = "https://didactic-space-pancake-r45rvx749r4357g-3000.app.github.dev/api/porras"
+    const porrasJson = await fetch(ruta)
+    const porras = await porrasJson.json()
+    setPorras(porras.porras)
+  }
+
+  useEffect(() => {
+    getPorras()
+  }, [])
 
   return (
-    <h1>PORRAS!!!!</h1>
-
+    <div>
+      <h1>PORRAS!!!!</h1>
+      {porras && porras.map((equipo) => (
+        <p>{equipo.nombre}</p>
+      ))}
+    </div>
   )
 }
 
