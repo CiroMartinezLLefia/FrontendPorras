@@ -5,7 +5,7 @@ function App() {
   const [porras, setPorras] = useState([])
 
   async function getPorras() {
-    const ruta = "https://didactic-space-pancake-r45rvx749r4357g-3000.app.github.dev/api/porras"
+    const ruta = "https://porrasapi-uufe.onrender.com/api/porras"
     const porrasJson = await fetch(ruta)
     const porras = await porrasJson.json()
     setPorras(porras.porras)
