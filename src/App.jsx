@@ -18,8 +18,11 @@ function App() {
   return (
     <div>
       <h1>PORRAS!!!!</h1>
-      {porras && porras.map((equipo) => (
-        <p>{equipo.nombre}</p>
+      {porras && porras.map((porra) => (
+        <div>
+          <p>{porra.email}</p>
+          <p>{porra.porra}</p>
+        </div>
       ))}
     </div>
   )
